@@ -1,0 +1,8 @@
+<!ENTITY skeleton.label "Your localized menuitem">
+<!ENTITY skeletonContext.label "Your Menuitem">
+<!ENTITY skeletonContext.accesskey "Y">
+<!ENTITY skeletonToolbarButton.label "Your Toolbar Button">
+<!ENTITY skeletonToolbarButton.tooltip "This is your toolbar button!">
+<!ENTITY skeletonSidebar.label "Your Sidebar">
+<!ENTITY skeletonToolbar.name  "example">
+<!ENTITY skeletonToolbar.label "This is an example toolbar. You can hide it under View &gt; toolbars &gt; &skeletonToolbar.name;">

@@ -1,0 +1,11 @@
+﻿{
+  "name": "Google chrome拡張機能Helloworld",
+  "version": "1.0",
+  "description": "Helloworld Extension",
+  "browser_action": {
+    "default_icon": "icon.png", // アイコンの画像ファイル
+    "popup": "popup.html"       // ポップアップ表示されるHTMLファイル
+  },
+  "permissions": [
+  ]
+} 

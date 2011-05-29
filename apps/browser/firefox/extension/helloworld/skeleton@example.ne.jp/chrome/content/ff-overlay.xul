@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://skeleton/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://skeleton/locale/overlay.dtd">
+<overlay id="skeleton-overlay"
+		 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/x-javascript" src="ff-overlay.js"/>
+
+	<!-- 「ファイル」｢編集」等と同様にタブを追加する --> 
+	<menubar id="main-menubar">
+	  <menu label="HelloWorldTab" insertbefore="tools-menu">
+	    <menupopup>
+	      <menuitem label="hello1"/>
+	      <menuitem label="hello2"/>
+	    </menupopup>
+	  </menu>
+	</menubar>
+
+	<!-- 「ツール」タブに追加する -->
+	<menupopup id="menu_ToolsPopup">
+	  <menuitem label="HelloWorldTool"/>
+	</menupopup>
+
+	<!-- コンテキストメニューに追加する -->
+	<popup id="contentAreaContextMenu">
+		<menuitem
+			id="skeletonMenuitem"
+			label="HelloWorldFromContext"
+			insertbefore="spell-separator"
+			oncommand="skeletonNs.onMenuItemCommand();"/>
+	</popup>
+
+</overlay>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="application/javascript"><![CDATA[
+    netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+    var ioService = Components
+            .classes['@mozilla.org/network/io-service;1']
+            .getService(Components.interfaces.nsIIOService);
+    alert(ioService);
+
+var WindowMediator = Components
+        .classes['@mozilla.org/appshell/window-mediator;1']
+        .getService(Components.interfaces.nsIWindowMediator);
+var browser =
+        WindowMediator.getMostRecentWindow('navigator:browser');
+alert("open tab count:" + browser.gBrowser.mTabs.length);
+
+
+
+
+var APP_ID = "skeleton@example.ne.jp";
+var file = Components.classes["@mozilla.org/extensions/manager;1"]
+	.getService(Components.interfaces.nsIExtensionManager)
+	.getInstallLocation(APP_ID)
+	.getItemLocation(APP_ID);
+file.append("data.txt");
+var data = "";
+var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"]
+                        .createInstance(Components.interfaces.nsIFileInputStream);
+var sstream = Components.classes["@mozilla.org/scriptableinputstream;1"]
+                        .createInstance(Components.interfaces.nsIScriptableInputStream);
+fstream.init(file, -1, 0, 0);
+sstream.init(fstream); 
+
+var str = sstream.read(4096);
+while (str.length > 0) {
+  data += str;
+  str = sstream.read(4096);
+}
+
+sstream.close();
+fstream.close();
+alert(data);
+
+
+
+
+
+
+
+]]></script>
+</page>

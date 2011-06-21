@@ -1,0 +1,26 @@
+CREATE DATABASE IF NOT EXISTS AVLIST CHARACTER SET UTF8;
+USE AVLIST;
+
+CREATE TABLE `tmp_actress` (
+  `pkid`              INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cid`               CHAR(10),
+  `actress_name`      VARCHAR(100) NOT NULL DEFAULT '',
+  `actress_name_kana` VARCHAR(100) NOT NULL DEFAULT '',
+   PRIMARY KEY  (`pkid`)
+) ENGINE=MyISAM;
+
+CREATE TABLE `actress` (
+  `pkid`              INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cid`               CHAR(10),
+  `actress_name`      VARCHAR(100) NOT NULL DEFAULT '',
+  `actress_name_kana` VARCHAR(100) NOT NULL DEFAULT '',
+  `birthdate`         VARCHAR(100) NOT NULL DEFAULT '',
+  `asterism`          VARCHAR(10)  NOT NULL DEFAULT '',
+  `bloodtype`         VARCHAR(10)  NOT NULL DEFAULT '',
+  `hometown`          VARCHAR(20)  NOT NULL DEFAULT '',
+  `figure`            VARCHAR(64)  NOT NULL DEFAULT '',
+  `hobby`             VARCHAR(128) NOT NULL DEFAULT '',
+   `other1`           TEXT,
+   `other2`           TEXT,
+   PRIMARY KEY  (`pkid`)
+) ENGINE=MyISAM;

@@ -1,0 +1,61 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+	<title>test</title>
+
+<script language="JavaScript">
+<!--
+
+// なぜかwindows.onloadは必要(読み込まれた後じゃないと駄目だったっけ??)
+window.onload = function(){
+	document.getElementById("mybutton").onclick = function(){
+		alert("mybutton clicked");
+	};
+
+	// 以下の例ではどのボタンを押下しても4と表示されてしまう
+	// これは i という値への参照を保持しているためらしい
+	for( var i = 1; i <= 3; i++ ){
+		var button = document.getElementById("button" + i );
+		button.onclick = function(){
+			alert("button" + i + " clicked");
+		};
+	}
+
+	// 以下の様に記述するのが正解
+	for( var j = 11; j <= 13; j++ ){
+		var button = document.getElementById("button" + j );
+
+		// 上記の様な不具合を防ぐためにはもう一段階関数で囲んで記述する
+		(function(n){
+			button.onclick = function(){
+				alert(n);
+			};
+		})(j);                                          // ここで引数を渡す
+	}
+};
+
+// -->
+</script> 
+
+</head>
+<body>
+
+	クロージャーに関する挙動のサンプル
+	■ 基本的なサンプル<br>
+	<input id="mybutton" type=button value="mybutton"><br>
+	<br><br>
+
+	■以下の例では押下すると必ず4となってしまう<br>
+	<input id="button1"  type=button value="button1"><br>
+	<input id="button2"  type=button value="button2"><br>
+	<input id="button3"  type=button value="button3"><br>
+	<br><br>
+
+	■以下の例では期待している正常な値を取得する例<br>
+	<input id="button11"  type=button value="button11"><br>
+	<input id="button12"  type=button value="button12"><br>
+	<input id="button13"  type=button value="button13"><br>
+	<br><br>
+
+</body>
+</html>

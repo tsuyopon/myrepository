@@ -34,9 +34,13 @@ namespace {
 	char *str = "MUMEI NAMESPACE START";  // 無名名前空間で定義される変数は他のファイルからアクセスすることはできません。(extern char *strによるアクセスも不可です)
 }
 
+// 名前空間に対するエイリアス設定
+namespace que = Azarashi::Goma;
+
 int main(){
 	MySpace::MySpace();
 	Azarashi::Goma::print();   // 名前空間のネスト呼び出し
 	cout << ::str << endl;     // 無名名前空間呼び出し
+	que::print();              // 名前空間エイリアスを利用した呼び出し
 	return 0;
 }
